@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Raúl Pérez Aguilar — DIWEB 2º DAW</title>
 
-    <meta 
-        name="description" 
-        content="Portfolio de Diseño de Interfaces Web — 2º DAW"
+    <meta
+        name="description"
+        content="Portfolio académico de Diseño de Interfaces Web — 2º DAW"
     >
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet"
     >
 
     <style>
+
         /* =========================
            VARIABLES
         ========================= */
 
         :root {
-            --background: #151515;
-            --surface: #1d1d1d;
-            --surface-light: #242424;
+            --background: #111111;
+            --surface: #181818;
+            --surface-hover: #202020;
 
-            --text: #e8e6e1;
-            --text-secondary: #929292;
+            --text: #e9e7e2;
+            --secondary: #858585;
+            --muted: #555555;
 
             --accent: #b8b1a3;
-            --border: #303030;
+
+            --border: #2b2b2b;
+            --border-hover: #444444;
 
             --max-width: 1180px;
         }
@@ -54,10 +60,10 @@
         }
 
         body {
-            font-family: "Inter", sans-serif;
             background: var(--background);
             color: var(--text);
-            line-height: 1.6;
+            font-family: "Inter", sans-serif;
+            line-height: 1.5;
         }
 
         a {
@@ -71,18 +77,18 @@
         ========================= */
 
         header {
-            width: 100%;
             border-bottom: 1px solid var(--border);
         }
 
         .nav {
             max-width: var(--max-width);
             margin: auto;
-            padding: 24px 30px;
+
+            padding: 23px 30px;
 
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
@@ -92,13 +98,13 @@
         }
 
         .logo span {
-            color: var(--text-secondary);
+            color: var(--secondary);
             font-weight: 400;
         }
 
         .nav-info {
-            color: var(--text-secondary);
-            font-size: 13px;
+            color: var(--secondary);
+            font-size: 12px;
         }
 
 
@@ -109,191 +115,240 @@
         .hero {
             max-width: var(--max-width);
             margin: auto;
-            padding: 130px 30px 110px;
+
+            padding: 125px 30px 115px;
         }
 
         .hero-label {
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 10px;
 
             margin-bottom: 28px;
 
-            color: var(--text-secondary);
-            font-size: 12px;
+            color: var(--secondary);
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.16em;
         }
 
         .hero-label::before {
             content: "";
-            width: 7px;
-            height: 7px;
+
+            width: 6px;
+            height: 6px;
+
             border-radius: 50%;
+
             background: var(--accent);
         }
 
         .hero h1 {
             max-width: 900px;
 
-            font-size: clamp(48px, 8vw, 96px);
-            line-height: 0.95;
-            letter-spacing: -0.065em;
+            font-size: clamp(55px, 8vw, 100px);
+            line-height: 0.9;
+
+            letter-spacing: -0.07em;
             font-weight: 600;
         }
 
         .hero h1 span {
-            color: var(--text-secondary);
+            color: #6f6f6f;
         }
 
         .hero-description {
-            max-width: 600px;
-            margin-top: 38px;
+            max-width: 610px;
 
-            color: var(--text-secondary);
-            font-size: 16px;
+            margin-top: 40px;
+
+            color: var(--secondary);
+
+            font-size: 15px;
+            line-height: 1.7;
         }
 
         .hero-meta {
             display: flex;
             gap: 35px;
-            margin-top: 45px;
 
-            color: var(--text-secondary);
-            font-size: 13px;
-        }
+            margin-top: 40px;
 
-
-        /* =========================
-           SECTION
-        ========================= */
-
-        .section {
-            max-width: var(--max-width);
-            margin: auto;
-            padding: 30px 30px 120px;
-        }
-
-        .section-header {
-            display: flex;
-            align-items: end;
-            justify-content: space-between;
-
-            padding-bottom: 20px;
-            margin-bottom: 25px;
-
-            border-bottom: 1px solid var(--border);
-        }
-
-        .section-title {
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-        }
-
-        .section-count {
-            color: var(--text-secondary);
+            color: var(--secondary);
             font-size: 12px;
         }
 
 
         /* =========================
-           PROJECTS
+           THEMES
         ========================= */
 
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
+        .themes-section {
+            max-width: var(--max-width);
+            margin: auto;
+
+            padding: 0 30px 130px;
         }
 
-        .project {
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+
+            padding-bottom: 18px;
+            margin-bottom: 15px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 12px;
+            font-weight: 600;
+
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+        .section-count {
+            color: var(--secondary);
+            font-size: 11px;
+        }
+
+
+        /* =========================
+           THEME GRID
+        ========================= */
+
+        .themes {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 12px;
+        }
+
+        .theme {
             position: relative;
 
-            min-height: 300px;
+            min-height: 330px;
+
             padding: 30px;
 
             background: var(--surface);
+
             border: 1px solid var(--border);
 
             display: flex;
             flex-direction: column;
             justify-content: space-between;
 
+            overflow: hidden;
+
             transition:
-                transform 0.3s ease,
-                background 0.3s ease,
-                border-color 0.3s ease;
+                transform .35s ease,
+                background .35s ease,
+                border-color .35s ease;
         }
 
-        .project.available {
+        .theme.available {
             cursor: pointer;
         }
 
-        .project.available:hover {
-            transform: translateY(-4px);
-            background: var(--surface-light);
-            border-color: #444;
+        .theme.available:hover {
+            transform: translateY(-5px);
+
+            background: var(--surface-hover);
+
+            border-color: var(--border-hover);
         }
 
-        .project-number {
-            color: var(--text-secondary);
-            font-size: 12px;
-            letter-spacing: 0.08em;
+        .theme-number {
+            color: var(--secondary);
+
+            font-size: 11px;
+
+            letter-spacing: .12em;
         }
 
-        .project-content h2 {
-            margin-bottom: 10px;
-
-            font-size: 26px;
-            line-height: 1.1;
-            letter-spacing: -0.04em;
+        .theme-content {
+            position: relative;
+            z-index: 2;
         }
 
-        .project-content p {
-            max-width: 450px;
+        .theme-content h2 {
+            margin-bottom: 12px;
 
-            color: var(--text-secondary);
-            font-size: 14px;
+            font-size: 34px;
+            line-height: 1;
+
+            letter-spacing: -.05em;
         }
 
-        .project-footer {
+        .theme-content p {
+            max-width: 430px;
+
+            color: var(--secondary);
+
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .theme-footer {
             display: flex;
-            align-items: center;
             justify-content: space-between;
+            align-items: center;
 
-            margin-top: 30px;
-
-            font-size: 12px;
+            font-size: 11px;
         }
 
-        .project-link {
+        .theme-link {
             color: var(--text);
         }
 
-        .project-arrow {
+        .theme-arrow {
             font-size: 18px;
 
-            transition: transform 0.3s ease;
+            transition: transform .3s ease;
         }
 
-        .project.available:hover .project-arrow {
-            transform: translate(4px, -4px);
+        .theme.available:hover .theme-arrow {
+            transform: translate(5px, -5px);
         }
 
 
         /* =========================
-           LOCKED PROJECTS
+           DECORATION
         ========================= */
 
-        .project.locked {
-            opacity: 0.38;
-            cursor: default;
+        .theme::after {
+            content: attr(data-number);
+
+            position: absolute;
+
+            right: -20px;
+            bottom: -55px;
+
+            font-size: 190px;
+            line-height: 1;
+
+            font-weight: 600;
+
+            color: rgba(255,255,255,.025);
+
+            pointer-events: none;
+        }
+
+
+        /* =========================
+           LOCKED
+        ========================= */
+
+        .theme.locked {
+            opacity: .38;
         }
 
         .locked-label {
-            color: var(--text-secondary);
+            color: var(--secondary);
         }
 
 
@@ -308,19 +363,20 @@
         .footer-inner {
             max-width: var(--max-width);
             margin: auto;
+
             padding: 25px 30px;
 
             display: flex;
             justify-content: space-between;
-            align-items: center;
 
-            color: var(--text-secondary);
-            font-size: 12px;
+            color: var(--secondary);
+
+            font-size: 11px;
         }
 
 
         /* =========================
-           RESPONSIVE
+           MOBILE
         ========================= */
 
         @media (max-width: 700px) {
@@ -338,43 +394,52 @@
             }
 
             .hero h1 {
-                font-size: clamp(48px, 15vw, 76px);
+                font-size: clamp(52px, 16vw, 80px);
+            }
+
+            .hero-description {
+                font-size: 14px;
             }
 
             .hero-meta {
                 flex-direction: column;
-                gap: 8px;
+                gap: 7px;
             }
 
-            .section {
-                padding: 20px 20px 80px;
+            .themes-section {
+                padding: 0 20px 80px;
             }
 
-            .projects {
+            .themes {
                 grid-template-columns: 1fr;
             }
 
-            .project {
-                min-height: 270px;
+            .theme {
+                min-height: 290px;
             }
 
             .footer-inner {
                 padding: 20px;
+
                 flex-direction: column;
-                align-items: flex-start;
                 gap: 8px;
             }
         }
+
     </style>
+
 </head>
 
+
 <body>
+
 
     <!-- =========================
          HEADER
     ========================== -->
 
     <header>
+
         <nav class="nav">
 
             <a href="index.html" class="logo">
@@ -386,14 +451,19 @@
             </div>
 
         </nav>
+
     </header>
 
 
+
     <!-- =========================
-         HERO
+         MAIN
     ========================== -->
 
     <main>
+
+
+        <!-- HERO -->
 
         <section class="hero">
 
@@ -422,16 +492,17 @@
         </section>
 
 
+
         <!-- =========================
-             PROJECTS
+             TEMAS
         ========================== -->
 
-        <section class="section">
+        <section class="themes-section">
 
             <div class="section-header">
 
                 <h2 class="section-title">
-                    Ejercicios
+                    Temas
                 </h2>
 
                 <span class="section-count">
@@ -441,40 +512,45 @@
             </div>
 
 
-            <div class="projects">
+            <div class="themes">
 
 
-                <!-- EJERCICIO 01 -->
+                <!-- TEMA 01 -->
 
-                <a 
-                    href="evolucion.html" 
-                    class="project available"
+                <a
+                    href="tema1.html"
+                    class="theme available"
+                    data-number="01"
                 >
 
-                    <span class="project-number">
-                        01 — 2026
+                    <span class="theme-number">
+                        TEMA 01 · 2026
                     </span>
 
-                    <div class="project-content">
+
+                    <div class="theme-content">
 
                         <h2>
-                            Tema 01
+                            Evolución<br>
+                            de la Web
                         </h2>
 
                         <p>
-                            Presentación visual sobre la evolución
-                            de la Web y sus principales etapas.
+                            Historia, etapas y transformación
+                            de la Web desde sus comienzos hasta
+                            las tecnologías actuales.
                         </p>
 
                     </div>
 
-                    <div class="project-footer">
 
-                        <span class="project-link">
-                            Ver Tema
+                    <div class="theme-footer">
+
+                        <span class="theme-link">
+                            Ver tema
                         </span>
 
-                        <span class="project-arrow">
+                        <span class="theme-arrow">
                             ↗
                         </span>
 
@@ -483,28 +559,32 @@
                 </a>
 
 
-                <!-- EJERCICIO 02 -->
 
-                <div class="project locked">
+                <!-- TEMA 02 -->
 
-                    <span class="project-number">
-                        02
+                <div
+                    class="theme locked"
+                    data-number="02"
+                >
+
+                    <span class="theme-number">
+                        TEMA 02
                     </span>
 
-                    <div class="project-content">
+                    <div class="theme-content">
 
                         <h2>
                             Próximamente
                         </h2>
 
                         <p>
-                            Este ejercicio estará disponible
+                            Este tema estará disponible
                             cuando sea publicado.
                         </p>
 
                     </div>
 
-                    <div class="project-footer">
+                    <div class="theme-footer">
 
                         <span class="locked-label">
                             Bloqueado
@@ -519,28 +599,32 @@
                 </div>
 
 
-                <!-- EJERCICIO 03 -->
 
-                <div class="project locked">
+                <!-- TEMA 03 -->
 
-                    <span class="project-number">
-                        03
+                <div
+                    class="theme locked"
+                    data-number="03"
+                >
+
+                    <span class="theme-number">
+                        TEMA 03
                     </span>
 
-                    <div class="project-content">
+                    <div class="theme-content">
 
                         <h2>
                             Próximamente
                         </h2>
 
                         <p>
-                            Este ejercicio estará disponible
+                            Este tema estará disponible
                             cuando sea publicado.
                         </p>
 
                     </div>
 
-                    <div class="project-footer">
+                    <div class="theme-footer">
 
                         <span class="locked-label">
                             Bloqueado
@@ -555,28 +639,32 @@
                 </div>
 
 
-                <!-- EJERCICIO 04 -->
 
-                <div class="project locked">
+                <!-- TEMA 04 -->
 
-                    <span class="project-number">
-                        04
+                <div
+                    class="theme locked"
+                    data-number="04"
+                >
+
+                    <span class="theme-number">
+                        TEMA 04
                     </span>
 
-                    <div class="project-content">
+                    <div class="theme-content">
 
                         <h2>
                             Próximamente
                         </h2>
 
                         <p>
-                            Este ejercicio estará disponible
+                            Este tema estará disponible
                             cuando sea publicado.
                         </p>
 
                     </div>
 
-                    <div class="project-footer">
+                    <div class="theme-footer">
 
                         <span class="locked-label">
                             Bloqueado
@@ -595,6 +683,7 @@
         </section>
 
     </main>
+
 
 
     <!-- =========================
@@ -616,6 +705,7 @@
         </div>
 
     </footer>
+
 
 </body>
 </html>
