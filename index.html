@@ -1,11 +1,621 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio RaulPerezAguilar</title>
+
+    <title>Raúl Pérez Aguilar — DIWEB 2º DAW</title>
+
+    <meta 
+        name="description" 
+        content="Portfolio de Diseño de Interfaces Web — 2º DAW"
+    >
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+        rel="stylesheet"
+    >
+
+    <style>
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        :root {
+            --background: #151515;
+            --surface: #1d1d1d;
+            --surface-light: #242424;
+
+            --text: #e8e6e1;
+            --text-secondary: #929292;
+
+            --accent: #b8b1a3;
+            --border: #303030;
+
+            --max-width: 1180px;
+        }
+
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        header {
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 24px 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .logo span {
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .nav-info {
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 130px 30px 110px;
+        }
+
+        .hero-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 28px;
+
+            color: var(--text-secondary);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+        .hero-label::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .hero h1 {
+            max-width: 900px;
+
+            font-size: clamp(48px, 8vw, 96px);
+            line-height: 0.95;
+            letter-spacing: -0.065em;
+            font-weight: 600;
+        }
+
+        .hero h1 span {
+            color: var(--text-secondary);
+        }
+
+        .hero-description {
+            max-width: 600px;
+            margin-top: 38px;
+
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .hero-meta {
+            display: flex;
+            gap: 35px;
+            margin-top: 45px;
+
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 30px 30px 120px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .section-count {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        .project {
+            position: relative;
+
+            min-height: 300px;
+            padding: 30px;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .project.available {
+            cursor: pointer;
+        }
+
+        .project.available:hover {
+            transform: translateY(-4px);
+            background: var(--surface-light);
+            border-color: #444;
+        }
+
+        .project-number {
+            color: var(--text-secondary);
+            font-size: 12px;
+            letter-spacing: 0.08em;
+        }
+
+        .project-content h2 {
+            margin-bottom: 10px;
+
+            font-size: 26px;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+        }
+
+        .project-content p {
+            max-width: 450px;
+
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .project-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            margin-top: 30px;
+
+            font-size: 12px;
+        }
+
+        .project-link {
+            color: var(--text);
+        }
+
+        .project-arrow {
+            font-size: 18px;
+
+            transition: transform 0.3s ease;
+        }
+
+        .project.available:hover .project-arrow {
+            transform: translate(4px, -4px);
+        }
+
+
+        /* =========================
+           LOCKED PROJECTS
+        ========================= */
+
+        .project.locked {
+            opacity: 0.38;
+            cursor: default;
+        }
+
+        .locked-label {
+            color: var(--text-secondary);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: auto;
+            padding: 25px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .nav {
+                padding: 20px;
+            }
+
+            .nav-info {
+                display: none;
+            }
+
+            .hero {
+                padding: 90px 20px 80px;
+            }
+
+            .hero h1 {
+                font-size: clamp(48px, 15vw, 76px);
+            }
+
+            .hero-meta {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .section {
+                padding: 20px 20px 80px;
+            }
+
+            .projects {
+                grid-template-columns: 1fr;
+            }
+
+            .project {
+                min-height: 270px;
+            }
+
+            .footer-inner {
+                padding: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-    <h1>Modulo de Diseño de Interfaces Web</h1>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header>
+        <nav class="nav">
+
+            <a href="index.html" class="logo">
+                RA<span> / DIWEB</span>
+            </a>
+
+            <div class="nav-info">
+                Diseño de Interfaces Web · 2º DAW
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-label">
+                Portfolio académico · 2026 / 2027
+            </div>
+
+            <h1>
+                Diseño.<br>
+                Interfaz.<br>
+                <span>Web.</span>
+            </h1>
+
+            <p class="hero-description">
+                Portfolio de trabajo correspondiente al módulo de
+                Diseño de Interfaces Web de 2º de Desarrollo de
+                Aplicaciones Web.
+            </p>
+
+            <div class="hero-meta">
+                <span>Raúl Pérez Aguilar</span>
+                <span>2º DAW</span>
+                <span>DIWEB</span>
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PROJECTS
+        ========================== -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <h2 class="section-title">
+                    Ejercicios
+                </h2>
+
+                <span class="section-count">
+                    01 / 08
+                </span>
+
+            </div>
+
+
+            <div class="projects">
+
+
+                <!-- EJERCICIO 01 -->
+
+                <a 
+                    href="evolucion.html" 
+                    class="project available"
+                >
+
+                    <span class="project-number">
+                        01 — 2026
+                    </span>
+
+                    <div class="project-content">
+
+                        <h2>
+                            Evolución de la Web
+                        </h2>
+
+                        <p>
+                            Presentación visual sobre la evolución
+                            de la Web y sus principales etapas.
+                        </p>
+
+                    </div>
+
+                    <div class="project-footer">
+
+                        <span class="project-link">
+                            Ver ejercicio
+                        </span>
+
+                        <span class="project-arrow">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+                <!-- EJERCICIO 02 -->
+
+                <div class="project locked">
+
+                    <span class="project-number">
+                        02
+                    </span>
+
+                    <div class="project-content">
+
+                        <h2>
+                            Próximamente
+                        </h2>
+
+                        <p>
+                            Este ejercicio estará disponible
+                            cuando sea publicado.
+                        </p>
+
+                    </div>
+
+                    <div class="project-footer">
+
+                        <span class="locked-label">
+                            Bloqueado
+                        </span>
+
+                        <span>
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EJERCICIO 03 -->
+
+                <div class="project locked">
+
+                    <span class="project-number">
+                        03
+                    </span>
+
+                    <div class="project-content">
+
+                        <h2>
+                            Próximamente
+                        </h2>
+
+                        <p>
+                            Este ejercicio estará disponible
+                            cuando sea publicado.
+                        </p>
+
+                    </div>
+
+                    <div class="project-footer">
+
+                        <span class="locked-label">
+                            Bloqueado
+                        </span>
+
+                        <span>
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EJERCICIO 04 -->
+
+                <div class="project locked">
+
+                    <span class="project-number">
+                        04
+                    </span>
+
+                    <div class="project-content">
+
+                        <h2>
+                            Próximamente
+                        </h2>
+
+                        <p>
+                            Este ejercicio estará disponible
+                            cuando sea publicado.
+                        </p>
+
+                    </div>
+
+                    <div class="project-footer">
+
+                        <span class="locked-label">
+                            Bloqueado
+                        </span>
+
+                        <span>
+                            —
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-inner">
+
+            <span>
+                © 2026 Raúl Pérez Aguilar
+            </span>
+
+            <span>
+                DIWEB · 2º DAW
+            </span>
+
+        </div>
+
+    </footer>
+
 </body>
 </html>
