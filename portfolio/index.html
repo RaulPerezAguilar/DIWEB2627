@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f3ef">
+  <meta name="description" content="Portfolio académico de Diseño de Interfaces Web, 2º DAW.">
+  <title>Portfolio DIWEB | Raúl Pérez Aguilar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#inicio" aria-label="Portfolio DIWEB, inicio">
+      <span class="brand-mark">R</span>
+      <span>RA<span class="brand-divider"> / </span>DIWEB</span>
+    </a>
+    <div class="topbar-meta"><span class="status-dot"></span> Curso 2026 / 2027 <span class="meta-divider">·</span> 2º DAW</div>
+    <a class="topbar-link" href="#temas">Explorar portfolio <span aria-hidden="true">↘</span></a>
+  </header>
+
+  <main id="inicio">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span>PORTFOLIO ACADÉMICO</span><span class="eyebrow-line"></span><span>DISEÑO DE INTERFACES WEB</span></p>
+        <h1 id="hero-title">Diseñar para<br>la <em>web.</em></h1>
+        <div class="hero-bottom">
+          <p class="hero-description">Un recorrido por mis ejercicios de interfaz: estructura, evolución y decisiones que dan forma a cada experiencia digital.</p>
+          <div class="author"><span class="author-initials">RP</span><span><strong>Raúl Pérez Aguilar</strong><small>Estudiante · 2º DAW</small></span></div>
+        </div>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
+        <div class="art-cross cross-one"></div><div class="art-cross cross-two"></div>
+        <div class="art-stamp"><span>INTERFAZ</span><span>EN</span><span>MOVIMIENTO</span></div>
+        <div class="art-index">01 — 08</div>
+      </div>
+    </section>
+
+    <section class="overview" aria-label="Resumen del portfolio">
+      <div class="overview-item"><span class="overview-value" id="activity-total">08</span><span class="overview-label">Actividades</span></div>
+      <div class="overview-item"><span class="overview-value" id="theme-total">02</span><span class="overview-label">Temas</span></div>
+      <div class="overview-item"><span class="overview-value" id="web-total">03</span><span class="overview-label">Experiencias web</span></div>
+      <div class="overview-note"><span class="note-star">✳</span> Trabajo en progreso <span class="note-year">2026—27</span></div>
+    </section>
+
+    <section class="catalog" id="temas" aria-labelledby="catalog-title">
+      <div class="catalog-heading">
+        <div><p class="section-kicker">ARCHIVO DE TRABAJO <span> / 01—02</span></p><h2 id="catalog-title">Temas y actividades</h2></div>
+        <p class="catalog-intro">Explora cada bloque, abre las entregas en su formato original o consulta el código fuente de las páginas web.</p>
+      </div>
+
+      <div class="catalog-tools">
+        <label class="search-box" for="activity-search"><span class="search-icon" aria-hidden="true">⌕</span><input id="activity-search" type="search" placeholder="Buscar una actividad..." autocomplete="off"><kbd>/</kbd></label>
+        <div class="filters" role="group" aria-label="Filtrar actividades por formato">
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Todo <span>08</span></button>
+          <button class="filter-button" type="button" data-filter="web" aria-pressed="false">Web <span>03</span></button>
+          <button class="filter-button" type="button" data-filter="pdf" aria-pressed="false">PDF <span>05</span></button>
+        </div>
+      </div>
+
+      <nav class="theme-index" id="theme-index" aria-label="Índice de temas"></nav>
+      <div class="theme-list" id="theme-list" aria-live="polite"></div>
+      <p class="empty-state" id="empty-state" hidden>No hay actividades que coincidan con la búsqueda.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="#inicio"><span class="brand-mark">R</span><span>RA<span class="brand-divider"> / </span>DIWEB</span></a>
+    <span>Raúl Pérez Aguilar <span class="meta-divider">·</span> Diseño de Interfaces Web</span>
+    <a class="back-top" href="#inicio">Volver arriba ↑</a>
+  </footer>
+
+  <dialog class="activity-dialog" id="activity-dialog" aria-labelledby="dialog-title">
+    <div class="dialog-shell">
+      <header class="dialog-header">
+        <div class="dialog-heading"><p class="dialog-kicker" id="dialog-kicker"></p><h2 id="dialog-title"></h2></div>
+        <button class="icon-button close-dialog" type="button" aria-label="Cerrar actividad" title="Cerrar">×</button>
+      </header>
+      <div class="dialog-toolbar">
+        <div class="dialog-tabs" role="tablist" aria-label="Vista de actividad">
+          <button class="dialog-tab is-active" type="button" role="tab" aria-selected="true" data-view="preview">Vista previa</button>
+          <button class="dialog-tab" type="button" role="tab" aria-selected="false" data-view="code" id="code-tab">Código</button>
+        </div>
+        <div class="dialog-actions">
+          <a class="text-action" id="open-original" href="#" target="_blank" rel="noopener">Abrir original ↗</a>
+          <a class="download-button" id="download-original" href="#" download>Descargar <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <div class="dialog-content">
+        <div class="preview-panel" id="preview-panel"><iframe id="activity-frame" title="Vista previa de la actividad" loading="lazy"></iframe></div>
+        <div class="code-panel" id="code-panel" hidden>
+          <div class="code-toolbar"><span id="code-filename"></span><div><button class="text-action" id="copy-code" type="button">Copiar código</button><button class="download-button" id="download-code" type="button">Descargar .html <span aria-hidden="true">↓</span></button></div></div>
+          <textarea id="code-source" spellcheck="false" aria-label="Código fuente de la actividad" readonly placeholder="Cargando código fuente..."></textarea>
+          <p class="code-help" id="code-help">Código fuente de la actividad original.</p>
+        </div>
+        <div class="document-notice" id="document-notice" hidden>Esta entrega es un documento PDF. Puedes consultarlo aquí o descargar el archivo original.</div>
+      </div>
+    </div>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
