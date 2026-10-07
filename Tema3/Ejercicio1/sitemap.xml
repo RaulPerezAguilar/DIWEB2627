@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <!-- Sustituye example.com por el dominio real al publicar el sitio. -->
+    <url>
+        <loc>file:///C:/Users/05_2DAW/Desktop/diweb_2027/DIWEB2627/Tema3/Ejercicio1/index.html</loc>
+    </url>
+    <url>
+        <loc>file:///C:/Users/05_2DAW/Desktop/diweb_2027/DIWEB2627/Tema3/Ejercicio1/acerca.html</loc>
+    </url>
+    <url>
+        <loc>file:///C:/Users/05_2DAW/Desktop/diweb_2027/DIWEB2627/Tema3/Ejercicio1/contacto.html</loc>
+    </url>
+    <url>
+        <loc>file:///C:/Users/05_2DAW/Desktop/diweb_2027/DIWEB2627/Tema3/Ejercicio1/sitemap.html</loc>
+    </url>
+    <url>
+        <loc>file:///C:/Users/05_2DAW/Desktop/diweb_2027/DIWEB2627/Tema3/Ejercicio1/diagrama.html</loc>
+    </url>
+</urlset>
