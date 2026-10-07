@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ejercicio 2 · Restaurante La Sierra (Ubrique)</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fraunces:wght@600;800&family=Nunito+Sans:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f4ee;--ink:#1f2a1c;--g:#2b3a24;--r:#b3321f;--s:#e3a72f;--mut:#5d6657;--card:#fff;--line:#d8d4c6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#171b15;--ink:#eee9da;--mut:#a9b0a0;--card:#232a20;--line:#3a4435}}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 'Nunito Sans',system-ui,sans-serif}
+.w{max-width:1150px;margin:auto;padding:20px}
+h1,h2{font-family:Fraunces,Georgia,serif;margin:0 0 6px}h1{font-size:clamp(26px,5vw,40px)}
+p.l{color:var(--mut);max-width:70ch;margin:0 0 14px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0}
+.tabs button{font:inherit;font-weight:700;padding:9px 15px;border:2px solid var(--g);background:none;color:var(--ink);border-radius:999px;cursor:pointer}
+.tabs button[aria-selected=true]{background:var(--g);color:#fff}
+.tabs button:focus-visible,.f button:focus-visible,.f a:focus-visible,.f input:focus-visible,.f select:focus-visible{outline:3px solid var(--s);outline-offset:2px}
+section{display:none}section.on{display:block}
+.row{display:flex;gap:26px;overflow-x:auto;padding:16px 4px 20px;align-items:flex-start}
+.col{flex:none;width:340px}.col h2{font-size:20px}
+.leg{font-size:13px;color:var(--mut);margin:8px 0 0}
+.mapbox{overflow-x:auto;background:#fbf9f3;border:1px solid var(--line);border-radius:12px;padding:10px}
+.mapbox svg{min-width:720px;width:100%;height:auto}
+.mapbox text{fill:#1f2a1c;font:700 13px 'Nunito Sans',sans-serif}
+.tbl{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-top:14px}
+.tbl div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px}
+.tbl b{display:block;margin-bottom:4px}
+/* ===== marco de página (móvil) ===== */
+.f{width:340px;flex:none;border:1px solid #888;border-radius:16px;overflow:hidden;font-size:13px;line-height:1.35;background:#fff;color:#222;position:relative}
+.f main{padding:12px;display:grid;gap:10px;min-height:430px;align-content:start}
+.f h3{margin:0;font-size:20px}.f p{margin:0}
+.hd{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;font-weight:800}
+.nv{display:flex}.nv a{flex:1;text-align:center;padding:8px 2px;font-weight:700;font-size:12px;text-decoration:none;color:inherit;cursor:default}
+.ft{padding:10px 12px;font-size:11px;display:flex;justify-content:space-between;gap:8px}
+.im{display:grid;place-items:center;min-height:110px;font-size:44px}.im.sm{min-height:0;font-size:18px}
+.bt{font:inherit;font-weight:700;padding:9px 12px;border:0;cursor:default;text-align:center}
+.cd{display:grid;grid-template-columns:64px 1fr auto;gap:8px;align-items:center;padding:8px}.cd .im{min-height:54px;font-size:28px}
+.cd .bt{padding:6px 9px}
+.in{display:block;width:100%;padding:8px;font:inherit;border:1px solid #aaa;background:#fff;color:#222;min-height:34px}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chips .bt{padding:5px 10px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.k{position:relative}
+.sk .k::before,.wf .k::before{content:attr(data-n);position:absolute;top:-8px;left:-8px;z-index:2;width:20px;height:20px;border-radius:50%;background:#d22;color:#fff;font:700 12px Arial;display:grid;place-items:center}
+.bar{display:flex;justify-content:space-between;align-items:center;padding:8px 10px}
+.toast{position:absolute;left:12px;right:12px;bottom:12px;padding:10px 12px;border-radius:10px;background:#1f2a1c;color:#fff;font-weight:700;display:none}
+.toast.on{display:block}
+/* ===== MOCKUP / PROTOTIPO ===== */
+.mk{border-color:#cfc8b0;font-family:'Nunito Sans',sans-serif;background:#fbf9f3}
+.mk .hd{background:var(--g);color:#fff;font-family:Fraunces,serif;font-size:18px}
+.mk .nv{background:#fff;border-bottom:1px solid #e4dfcf}.mk .nv a{color:#555}.mk .nv a.on{color:var(--r);box-shadow:inset 0 -3px var(--r)}
+.mk .ft{background:var(--g);color:#d9dfd0}
+.mk h3{font-family:Fraunces,serif;color:var(--g)}
+.mk .im{background:linear-gradient(135deg,#f3dfa6,#e9b76a);border-radius:10px}
+.mk .hero{background:linear-gradient(160deg,#2b3a24,#4a5c3a);color:#fff;border-radius:12px;padding:14px;display:grid;gap:8px}
+.mk .hero h3{color:#fff;font-size:24px}.mk .hero .im{background:#e3a72f33}
+.mk .bt{background:var(--r);color:#fff;border-radius:8px;cursor:pointer}.mk .bt.o{background:none;border:2px solid currentColor;color:var(--r)}.mk .hero .bt.o{color:#fff}
+.mk .chips .bt{background:#fff;color:var(--g);border:1px solid #cfc8b0;border-radius:999px}.mk .chips .bt.on{background:var(--g);color:#fff}
+.mk .cd{background:#fff;border-radius:10px;border:1px solid #e4dfcf}
+.mk .in{border-radius:8px;border-color:#bdb6a0}
+.mk .bar{background:var(--s);color:#1f2a1c;border-radius:10px;font-weight:800}.mk .bar .bt{background:var(--g)}
+.mk .nv a{cursor:pointer}
+/* ===== WIREFRAME ===== */
+.wf{font-family:Arial,Helvetica,sans-serif;background:#f2f2f2;border-color:#999}
+.wf .hd,.wf .ft,.wf .nv{background:#ccc;color:#444}.wf .nv a{border-right:1px solid #999}
+.wf .im,.wf .bt,.wf .cd,.wf .in,.wf .bar,.wf .hero{border:1px solid #888;background:#ddd;color:#444}
+.wf .im{background:linear-gradient(to top right,transparent calc(50% - 1px),#888,transparent calc(50% + 1px)),linear-gradient(to bottom right,transparent calc(50% - 1px),#888,transparent calc(50% + 1px)),#e4e4e4}
+.wf .im span{display:none}.wf .hero{padding:10px;display:grid;gap:8px;background:#e9e9e9}
+.wf .in{background:#fff;color:#999}.wf h3{color:#333}
+/* ===== SKETCH ===== */
+.sk{font-family:Caveat,'Comic Sans MS',cursive;font-size:16px;background:#fffef6;border:2px solid #333;color:#2a2a2a;border-radius:6px}
+.sk *{font-family:inherit!important;background:none!important;color:#2a2a2a!important;box-shadow:none!important}
+.sk .hd,.sk .nv,.sk .ft,.sk .im,.sk .bt,.sk .cd,.sk .in,.sk .bar,.sk .hero{border:2px solid #333;border-radius:255px 8px 225px 8px/8px 225px 8px 255px}
+.sk .im{background:linear-gradient(to top right,transparent calc(50% - 1px),#333,transparent calc(50% + 1px))!important}
+.sk .im span{display:none}.sk .hero{padding:8px;display:grid;gap:8px}.sk h3{font-size:24px}
+.sk .nv a{border-right:2px solid #333}.sk .in{min-height:30px}
+.note{font-size:14px;background:var(--card);border:1px dashed var(--mut);border-radius:10px;padding:10px 14px;margin:6px 0 0;max-width:80ch}
+.pwrap{display:flex;gap:28px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+.pwrap .f{width:360px}.pwrap aside{max-width:340px;font-size:15px}
+</style></head><body><div class="w">
+<h1>Restaurante «La Sierra» · Ubrique</h1>
+<p class="l">Ejercicio 2 · Planificación de interfaces. Web con carta, pedidos a domicilio y reservas de mesa. Cada pestaña es uno de los entregables: mapa de navegación y las fases del flujo SWMP (Sketch → Wireframe → Mockup → Prototipo).</p>
+<div class="tabs" role="tablist" id="tabs"></div>
+
+<section id="s0"><h2>1. Mapa de navegación</h2>
+<p class="l">6 páginas principales y 2 pantallas de confirmación. Las flechas indican cómo se pasa de una a otra; las de doble punta son enlaces en ambos sentidos. En rojo, las 3 páginas prototipadas.</p>
+<div class="mapbox"><svg viewBox="0 0 760 430" role="img" aria-label="Mapa de navegación del restaurante">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#555"/></marker></defs>
+<g fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)">
+<path d="M380 60V90H90V120"/><path d="M380 60V90H280V120"/><path d="M380 60V90H470V120"/><path d="M380 60V90H660V120"/>
+<path d="M150 150H220" marker-start="url(#a)"/><path d="M530 150H600" marker-start="url(#a)"/>
+<path d="M90 180V250"/><path d="M90 290V355"/><path d="M280 180V250"/>
+</g>
+<g stroke="#555" stroke-width="1.6" fill="#fff">
+<rect x="320" y="20" width="120" height="40" rx="6" fill="#fbe9c2" stroke="#b3321f" stroke-width="3"/>
+<rect x="30" y="120" width="120" height="60" rx="6" fill="#fbe9c2" stroke="#b3321f" stroke-width="3"/>
+<rect x="220" y="120" width="120" height="60" rx="6" fill="#fbe9c2" stroke="#b3321f" stroke-width="3"/>
+<rect x="410" y="120" width="120" height="60" rx="6" fill="#e8e6dc"/><rect x="600" y="120" width="120" height="60" rx="6" fill="#e8e6dc"/>
+<rect x="30" y="250" width="120" height="40" rx="6" fill="#e8e6dc"/><rect x="30" y="355" width="120" height="40" rx="6" fill="#d9e6d0"/>
+<rect x="220" y="250" width="120" height="40" rx="6" fill="#d9e6d0"/>
+</g>
+<g text-anchor="middle"><text x="380" y="45">Inicio</text>
+<text x="90" y="147">Carta y</text><text x="90" y="165">pedidos</text><text x="280" y="147">Reservas</text><text x="280" y="165">de mesa</text>
+<text x="470" y="155">Sobre nosotros</text><text x="660" y="155">Contacto</text>
+<text x="90" y="275">Carrito / entrega</text><text x="90" y="380">Pedido confirmado</text><text x="280" y="266">Reserva</text><text x="280" y="283">confirmada</text></g>
+<text x="410" y="260" style="font-weight:400;font-size:12px">Cabecera y logo: todas las</text><text x="410" y="277" style="font-weight:400;font-size:12px">páginas vuelven a Inicio</text>
+</svg></div>
+<div class="tbl"><div><b>Páginas (≥3)</b>Inicio, Carta y pedidos, Reservas de mesa, Sobre nosotros, Contacto.</div><div><b>Flujo de pedido</b>Inicio → Carta → Carrito/entrega → Pedido confirmado.</div><div><b>Flujo de reserva</b>Inicio → Reservas → Reserva confirmada.</div></div></section>
+
+<section id="s1"><h2>2. Sketch · a mano alzada</h2><p class="l">Boceto rápido de las 3 páginas, solo con cajas y texto. Los números rojos marcan los 3 elementos concretos de cada página.</p><div class="row" id="r1"></div>
+<p class="note">Nota: este boceto está simulado en digital con estilo de trazo a mano. Para la entrega en papel, redíbujalo siguiendo estas mismas cajas.</p></section>
+<section id="s2"><h2>3. Wireframe · estructura</h2><p class="l">Elementos comunes (cabecera, navegación, pie) arriba y abajo en gris; elementos concretos numerados en cada página.</p><div class="row" id="r2"></div></section>
+<section id="s3"><h2>4. Mockup · contenido y color</h2><p class="l">Paleta: verde oliva (confianza, producto local), rojo chile (acciones) y azafrán (resaltes). Los iconos sustituyen a las fotos reales.</p><div class="row" id="r3"></div></section>
+<section id="s4"><h2>5. Prototipo interactivo</h2><p class="l">Pruébalo: navega con el menú y los botones, filtra la carta, añade platos y haz el pedido o la reserva.</p>
+<div class="pwrap"><div id="proto"></div><aside><b>Decisiones de diseño (UX)</b><ul>
+<li><b>Forma y dirección:</b> una sola columna, lectura de arriba abajo, pensada para móvil.</li>
+<li><b>Orden:</b> primero las dos acciones principales (pedir y reservar), después el contenido.</li>
+<li><b>Color:</b> el rojo se reserva a los botones de acción; verde para estructura.</li>
+<li><b>Textura:</b> tarjetas con borde suave y fotos grandes que abren el apetito.</li>
+<li><b>Coherencia:</b> misma cabecera, menú y pie en las 3 páginas.</li></ul></aside></div></section>
+</div>
+<script>
+const S={n:0,t:0,cat:'Todos',pg:'inicio',toast:''};
+const D=[['Sopa de tomate','🍅',6,'Entrantes'],['Carne con tomate','🥘',11,'Principales'],['Chivo al ajillo','🍖',14,'Principales'],['Torrijas caseras','🍯',5,'Postres']];
+const names={inicio:'Inicio',carta:'Pedidos',reservas:'Reservas'};
+const L={inicio:['Imagen principal','Botones de acción','Platos destacados'],carta:['Filtros de categoría','Tarjetas de plato con botón Añadir','Barra de pedido'],reservas:['Foto del local','Formulario de reserva','Botón Confirmar']};
+const card=(d,i)=>`<div class="cd"><span class="im"><span>${d[1]}</span></span><div><b>${d[0]}</b><br>${d[2]} €</div><button class="bt" data-add="${i}">Añadir</button></div>`;
+const H={
+inicio:s=>`<div class="hero k" data-n="1"><span class="im"><span>🍲</span></span><h3>Cocina de la sierra, en tu mesa</h3><p>Recién inaugurado en Ubrique.</p><div class="two k" data-n="2"><button class="bt" data-go="carta">Pedir a domicilio</button><button class="bt o" data-go="reservas">Reservar mesa</button></div></div><h3 style="font-size:16px">Platos destacados</h3><div class="k" data-n="3" style="display:grid;gap:8px">${D.slice(0,3).map(card).join('')}</div>`,
+carta:s=>`<h3>Carta y pedidos</h3><div class="chips k" data-n="1">${['Todos','Entrantes','Principales','Postres'].map(c=>`<button class="bt ${s.cat==c?'on':''}" data-cat="${c}">${c}</button>`).join('')}</div><div class="k" data-n="2" style="display:grid;gap:8px">${D.map((d,i)=>[d,i]).filter(([d])=>s.cat=='Todos'||d[3]==s.cat).map(([d,i])=>card(d,i)).join('')}</div><div class="bar k" data-n="3"><span>Tu pedido: ${s.n} plato${s.n==1?'':'s'} · ${s.t} €</span><button class="bt" data-order>Hacer pedido</button></div>`,
+reservas:s=>`<h3>Reserva tu mesa</h3><span class="im k" data-n="1"><span>🏡</span></span><div class="k" data-n="2" style="display:grid;gap:8px"><label>Nombre<input class="in" id="rn" placeholder="Tu nombre"></label><div class="two"><label>Fecha<input class="in" type="date"></label><label>Hora<select class="in"><option>14:00</option><option>15:00</option><option>21:00</option></select></label></div><div class="two"><label>Comensales<input class="in" type="number" min="1" value="2"></label><label>Teléfono<input class="in" placeholder="600 000 000"></label></div></div><button class="bt k" data-n="3" data-book>Confirmar reserva</button>`};
+function F(p,mode,live){const lk=Object.keys(names).map(k=>`<a ${live?`role="button" tabindex="0" data-go="${k}"`:''} class="${k==p?'on':''}">${names[k]}</a>`).join('');
+return `<div class="f ${mode}"><header class="hd"><span>La Sierra</span><span class="im sm"><span>☰</span>≡</span></header><nav class="nv">${lk}</nav><main>${H[p](live?S:{n:0,t:0,cat:'Todos'})}</main><footer class="ft"><span>C/ Ejemplo 1, Ubrique</span><span>Tel. 956 000 000</span></footer>${live?`<div class="toast ${S.toast?'on':''}">${S.toast}</div>`:''}</div>`}
+function stat(id,mode){document.getElementById(id).innerHTML=Object.keys(names).map(p=>`<div class="col"><h2>${names[p]}</h2>${F(p,mode,false)}<p class="leg">Comunes: cabecera, menú, pie.<br>Concretos: ① ${L[p][0]} ② ${L[p][1]} ③ ${L[p][2]}</p></div>`).join('')}
+function proto(){document.getElementById('proto').innerHTML=F(S.pg,'mk',true)}
+stat('r1','sk');stat('r2','wf');stat('r3','mk');proto();
+document.getElementById('proto').addEventListener('click',e=>{const t=e.target.closest('[data-go],[data-cat],[data-add],[data-order],[data-book]');if(!t)return;S.toast='';
+if(t.dataset.go)S.pg=t.dataset.go;
+else if(t.dataset.cat)S.cat=t.dataset.cat;
+else if(t.dataset.add!==undefined){S.n++;S.t+=D[t.dataset.add][2]}
+else if('order' in t.dataset){S.toast=S.n?'Pedido enviado: lo recibirás en 40 min':'Añade al menos un plato';if(S.n){S.n=0;S.t=0}}
+else if('book' in t.dataset)S.toast='Reserva confirmada. ¡Te esperamos!';
+proto();if(S.toast)setTimeout(()=>{S.toast='';proto()},2600)});
+document.getElementById('proto').addEventListener('keydown',e=>{if(e.key=='Enter'&&e.target.dataset.go)e.target.click()});
+const T=['Mapa de navegación','Sketch','Wireframe','Mockup','Prototipo'],tb=document.getElementById('tabs');
+T.forEach((t,i)=>{const b=document.createElement('button');b.textContent=t;b.setAttribute('role','tab');b.onclick=()=>show(i);tb.appendChild(b)});
+function show(i){T.forEach((_,j)=>{document.getElementById('s'+j).classList.toggle('on',i==j);tb.children[j].setAttribute('aria-selected',i==j)})}
+show(0);
+</script></body></html>
