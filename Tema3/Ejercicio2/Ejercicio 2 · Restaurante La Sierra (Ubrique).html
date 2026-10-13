@@ -83,13 +83,24 @@ section{display:none}section.on{display:block}
 <div class="tabs" role="tablist" id="tabs"></div>
 
 <section id="s0"><h2>1. Mapa de navegación</h2>
-<p class="l">6 páginas principales y 2 pantallas de confirmación. Las flechas indican cómo se pasa de una a otra; las de doble punta son enlaces en ambos sentidos. En rojo, las 3 páginas prototipadas.</p>
+<p class="l">6 páginas principales y 2 pantallas de confirmación. Las flechas de doble punta son enlaces en ambos sentidos (se puede ir y volver). Las flechas discontinuas son el «volver a Inicio» desde las pantallas de confirmación. En rojo, las 3 páginas prototipadas.</p>
 <div class="mapbox"><svg viewBox="0 0 760 430" role="img" aria-label="Mapa de navegación del restaurante">
 <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#555"/></marker></defs>
-<g fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)">
+<!-- Inicio <-> cada página principal (doble punta) -->
+<g fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)" marker-start="url(#a)">
 <path d="M380 60V90H90V120"/><path d="M380 60V90H280V120"/><path d="M380 60V90H470V120"/><path d="M380 60V90H660V120"/>
-<path d="M150 150H220" marker-start="url(#a)"/><path d="M530 150H600" marker-start="url(#a)"/>
-<path d="M90 180V250"/><path d="M90 290V355"/><path d="M280 180V250"/>
+<path d="M150 150H220"/><path d="M530 150H600"/>
+<path d="M90 180V250"/>
+</g>
+<!-- Avance dentro de un flujo (un solo sentido) -->
+<g fill="none" stroke="#555" stroke-width="1.6" marker-end="url(#a)">
+<path d="M90 290V355"/><path d="M280 180V250"/>
+</g>
+<!-- Volver a Inicio desde las confirmaciones (discontinuo) -->
+<g fill="none" stroke="#b3321f" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#a)">
+<path d="M30 375H12V40H320"/>
+<path d="M30 270H12" marker-end="none"/>
+<path d="M340 270H400V60"/>
 </g>
 <g stroke="#555" stroke-width="1.6" fill="#fff">
 <rect x="320" y="20" width="120" height="40" rx="6" fill="#fbe9c2" stroke="#b3321f" stroke-width="3"/>
@@ -103,9 +114,15 @@ section{display:none}section.on{display:block}
 <text x="90" y="147">Carta y</text><text x="90" y="165">pedidos</text><text x="280" y="147">Reservas</text><text x="280" y="165">de mesa</text>
 <text x="470" y="155">Sobre nosotros</text><text x="660" y="155">Contacto</text>
 <text x="90" y="275">Carrito / entrega</text><text x="90" y="380">Pedido confirmado</text><text x="280" y="266">Reserva</text><text x="280" y="283">confirmada</text></g>
-<text x="410" y="260" style="font-weight:400;font-size:12px">Cabecera y logo: todas las</text><text x="410" y="277" style="font-weight:400;font-size:12px">páginas vuelven a Inicio</text>
+<text x="430" y="260" style="font-weight:400;font-size:12px">Cabecera y logo: desde cualquier</text><text x="430" y="277" style="font-weight:400;font-size:12px">página se puede volver a Inicio</text>
+<!-- Leyenda -->
+<g font-size="12" style="font-weight:400">
+<path d="M430 320H480" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#a)" marker-start="url(#a)"/><text x="490" y="324" style="font-weight:400;font-size:12px">Enlace en ambos sentidos</text>
+<path d="M430 345H480" stroke="#555" stroke-width="1.6" fill="none" marker-end="url(#a)"/><text x="490" y="349" style="font-weight:400;font-size:12px">Avanzar en el flujo</text>
+<path d="M430 370H480" stroke="#b3321f" stroke-width="1.8" stroke-dasharray="6 4" fill="none" marker-end="url(#a)"/><text x="490" y="374" style="font-weight:400;font-size:12px">Volver a Inicio</text>
+</g>
 </svg></div>
-<div class="tbl"><div><b>Páginas (≥3)</b>Inicio, Carta y pedidos, Reservas de mesa, Sobre nosotros, Contacto.</div><div><b>Flujo de pedido</b>Inicio → Carta → Carrito/entrega → Pedido confirmado.</div><div><b>Flujo de reserva</b>Inicio → Reservas → Reserva confirmada.</div></div></section>
+<div class="tbl"><div><b>Páginas (≥3)</b>Inicio, Carta y pedidos, Reservas de mesa, Sobre nosotros, Contacto.</div><div><b>Flujo de pedido</b>Inicio ⇄ Carta ⇄ Carrito/entrega → Pedido confirmado. Desde el carrito y desde la confirmación se puede volver a Inicio.</div><div><b>Flujo de reserva</b>Inicio ⇄ Reservas → Reserva confirmada → Inicio.</div></div></section>
 
 <section id="s1"><h2>2. Sketch · a mano alzada</h2><p class="l">Boceto rápido de las 3 páginas, solo con cajas y texto. Los números rojos marcan los 3 elementos concretos de cada página.</p><div class="row" id="r1"></div>
 <p class="note">Nota: este boceto está simulado en digital con estilo de trazo a mano. Para la entrega en papel, redíbujalo siguiendo estas mismas cajas.</p></section>
@@ -130,7 +147,7 @@ inicio:s=>`<div class="hero k" data-n="1"><span class="im"><span>🍲</span></sp
 carta:s=>`<h3>Carta y pedidos</h3><div class="chips k" data-n="1">${['Todos','Entrantes','Principales','Postres'].map(c=>`<button class="bt ${s.cat==c?'on':''}" data-cat="${c}">${c}</button>`).join('')}</div><div class="k" data-n="2" style="display:grid;gap:8px">${D.map((d,i)=>[d,i]).filter(([d])=>s.cat=='Todos'||d[3]==s.cat).map(([d,i])=>card(d,i)).join('')}</div><div class="bar k" data-n="3"><span>Tu pedido: ${s.n} plato${s.n==1?'':'s'} · ${s.t} €</span><button class="bt" data-order>Hacer pedido</button></div>`,
 reservas:s=>`<h3>Reserva tu mesa</h3><span class="im k" data-n="1"><span>🏡</span></span><div class="k" data-n="2" style="display:grid;gap:8px"><label>Nombre<input class="in" id="rn" placeholder="Tu nombre"></label><div class="two"><label>Fecha<input class="in" type="date"></label><label>Hora<select class="in"><option>14:00</option><option>15:00</option><option>21:00</option></select></label></div><div class="two"><label>Comensales<input class="in" type="number" min="1" value="2"></label><label>Teléfono<input class="in" placeholder="600 000 000"></label></div></div><button class="bt k" data-n="3" data-book>Confirmar reserva</button>`};
 function F(p,mode,live){const lk=Object.keys(names).map(k=>`<a ${live?`role="button" tabindex="0" data-go="${k}"`:''} class="${k==p?'on':''}">${names[k]}</a>`).join('');
-return `<div class="f ${mode}"><header class="hd"><span>La Sierra</span><span class="im sm"><span>☰</span>≡</span></header><nav class="nv">${lk}</nav><main>${H[p](live?S:{n:0,t:0,cat:'Todos'})}</main><footer class="ft"><span>C/ Ejemplo 1, Ubrique</span><span>Tel. 956 000 000</span></footer>${live?`<div class="toast ${S.toast?'on':''}">${S.toast}</div>`:''}</div>`}
+return `<div class="f ${mode}"><header class="hd"><span${live?' role="button" tabindex="0" data-go="inicio" style="cursor:pointer"':''}>La Sierra</span><span class="im sm"><span>☰</span>≡</span></header><nav class="nv">${lk}</nav><main>${H[p](live?S:{n:0,t:0,cat:'Todos'})}</main><footer class="ft"><span>C/ Ejemplo 1, Ubrique</span><span>Tel. 956 000 000</span></footer>${live?`<div class="toast ${S.toast?'on':''}">${S.toast}</div>`:''}</div>`}
 function stat(id,mode){document.getElementById(id).innerHTML=Object.keys(names).map(p=>`<div class="col"><h2>${names[p]}</h2>${F(p,mode,false)}<p class="leg">Comunes: cabecera, menú, pie.<br>Concretos: ① ${L[p][0]} ② ${L[p][1]} ③ ${L[p][2]}</p></div>`).join('')}
 function proto(){document.getElementById('proto').innerHTML=F(S.pg,'mk',true)}
 stat('r1','sk');stat('r2','wf');stat('r3','mk');proto();
