@@ -4,7 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f4f3ef">
-  <meta name="description" content="Portfolio académico de Diseño de Interfaces Web, 2º DAW.">
+  <meta name="description" content="Portfolio académico de Diseño de Interfaces Web (DIWEB), 2º DAW. Ejercicios de Raúl Pérez Aguilar sobre fundamentos, estructura y prototipado web.">
+  <meta name="author" content="Raúl Pérez Aguilar">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Portfolio DIWEB | Raúl Pérez Aguilar">
+  <meta property="og:description" content="Recorrido por los ejercicios de Diseño de Interfaces Web, curso 2026/2027.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2322231f'/%3E%3Ctext x='16' y='23' font-size='21' text-anchor='middle' fill='%23fffefa' font-family='Georgia,serif'%3ER%3C/text%3E%3C/svg%3E">
   <title>Portfolio DIWEB | Raúl Pérez Aguilar</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,6 +18,7 @@
   <script src="app.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#temas">Saltar al contenido</a>
   <header class="topbar">
     <a class="brand" href="#inicio" aria-label="Portfolio DIWEB, inicio">
       <span class="brand-mark">R</span>
@@ -36,28 +42,28 @@
         <div class="art-orbit orbit-one"></div><div class="art-orbit orbit-two"></div>
         <div class="art-cross cross-one"></div><div class="art-cross cross-two"></div>
         <div class="art-stamp"><span>INTERFAZ</span><span>EN</span><span>MOVIMIENTO</span></div>
-        <div class="art-index">01 — 08</div>
+        <div class="art-index">01 — <span id="art-total">10</span></div>
       </div>
     </section>
 
     <section class="overview" aria-label="Resumen del portfolio">
-      <div class="overview-item"><span class="overview-value" id="activity-total">08</span><span class="overview-label">Actividades</span></div>
-      <div class="overview-item"><span class="overview-value" id="theme-total">02</span><span class="overview-label">Temas</span></div>
-      <div class="overview-item"><span class="overview-value" id="web-total">03</span><span class="overview-label">Experiencias web</span></div>
+      <div class="overview-item"><span class="overview-value" id="activity-total">10</span><span class="overview-label">Actividades</span></div>
+      <div class="overview-item"><span class="overview-value" id="theme-total">03</span><span class="overview-label">Temas</span></div>
+      <div class="overview-item"><span class="overview-value" id="web-total">05</span><span class="overview-label">Experiencias web</span></div>
       <div class="overview-note"><span class="note-star">✳</span> Trabajo en progreso <span class="note-year">2026—27</span></div>
     </section>
 
     <section class="catalog" id="temas" aria-labelledby="catalog-title">
       <div class="catalog-heading">
-        <div><p class="section-kicker">ARCHIVO DE TRABAJO <span> / 01—02</span></p><h2 id="catalog-title">Temas y actividades</h2></div>
+        <div><p class="section-kicker">ARCHIVO DE TRABAJO <span> / 01—03</span></p><h2 id="catalog-title">Temas y actividades</h2></div>
         <p class="catalog-intro">Explora cada bloque, abre las entregas en su formato original o consulta el código fuente de las páginas web.</p>
       </div>
 
       <div class="catalog-tools">
         <label class="search-box" for="activity-search"><span class="search-icon" aria-hidden="true">⌕</span><input id="activity-search" type="search" placeholder="Buscar una actividad..." autocomplete="off"><kbd>/</kbd></label>
         <div class="filters" role="group" aria-label="Filtrar actividades por formato">
-          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Todo <span>08</span></button>
-          <button class="filter-button" type="button" data-filter="web" aria-pressed="false">Web <span>03</span></button>
+          <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">Todo <span>10</span></button>
+          <button class="filter-button" type="button" data-filter="web" aria-pressed="false">Web <span>05</span></button>
           <button class="filter-button" type="button" data-filter="pdf" aria-pressed="false">PDF <span>05</span></button>
         </div>
       </div>
@@ -66,12 +72,25 @@
       <div class="theme-list" id="theme-list" aria-live="polite"></div>
       <p class="empty-state" id="empty-state" hidden>No hay actividades que coincidan con la búsqueda.</p>
     </section>
+    <section class="about" id="sobre" aria-labelledby="about-title">
+      <div class="catalog-heading">
+        <div><p class="section-kicker">SOBRE EL PORTFOLIO <span> / 04</span></p><h2 id="about-title">Lo que he aprendido</h2></div>
+        <p class="catalog-intro">Un resumen de las competencias que trabajo en cada tema, desde la teoría del diseño hasta un prototipo interactivo.</p>
+      </div>
+      <div class="about-grid">
+        <article><span class="about-num">T01</span><h3>Fundamentos</h3><p>Evolución de la web, diferencia entre UI y UX, principios del diseño interactivo y leyes visuales como contraste o jerarquía.</p></article>
+        <article><span class="about-num">T02</span><h3>Estructura</h3><p>Maquetación semántica con HTML5: header, nav, main, article, section, aside y footer, y cómo se relacionan visual y funcionalmente.</p></article>
+        <article><span class="about-num">T03</span><h3>Planificación</h3><p>Arquitectura de la información: mapa de navegación, mapa del sitio y enlaces coherentes entre páginas.</p></article>
+        <article><span class="about-num">T03</span><h3>Prototipado</h3><p>El proceso completo: sketch, wireframe, mockup y prototipo interactivo, aplicado a un restaurante real de Ubrique.</p></article>
+      </div>
+      <ul class="stack" aria-label="Tecnologías utilizadas"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Git / GitHub</li></ul>
+    </section>
   </main>
 
   <footer class="footer">
     <a class="brand footer-brand" href="#inicio"><span class="brand-mark">R</span><span>RA<span class="brand-divider"> / </span>DIWEB</span></a>
     <span>Raúl Pérez Aguilar <span class="meta-divider">·</span> Diseño de Interfaces Web</span>
-    <a class="back-top" href="#inicio">Volver arriba ↑</a>
+    <span class="footer-links"><a class="back-top" href="https://github.com/RaulPerezAguilar/DIWEB2627" target="_blank" rel="noopener">Repositorio ↗</a><a class="back-top" href="#inicio">Volver arriba ↑</a></span>
   </footer>
 
   <dialog class="activity-dialog" id="activity-dialog" aria-labelledby="dialog-title">

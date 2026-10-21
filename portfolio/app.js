@@ -2,14 +2,14 @@ const themes = [
   {
     id: "tema-01",
     number: "01",
-    title: "La evolución de la web",
-    description: "Historia y fundamentos de la experiencia web.",
+    title: "Fundamentos y evolución de la web",
+    description: "Historia, UI/UX, principios de interacción y leyes visuales.",
     activities: [
       {
         id: "tema-01-ejercicio-01",
         number: "01",
-        title: "Evolución de la Web",
-        description: "Presentación visual sobre las etapas de la web.",
+        title: "Evolución de la web",
+        description: "Línea del tiempo visual de 1989 a la actualidad: de la web de texto a la web con IA.",
         format: "web",
         path: "../evolucion.html",
         filename: "evolucion.html"
@@ -17,8 +17,8 @@ const themes = [
       {
         id: "tema-01-ejercicio-02",
         number: "02",
-        title: "Actividad 02",
-        description: "Entrega original en PDF.",
+        title: "Glosario de tendencias de diseño web",
+        description: "Modo oscuro, responsive, parallax, PWA, WebGL, hero section, CTA y más.",
         format: "pdf",
         path: "../Tema1/Ejercicio%202/Ejercicio%202.pdf",
         filename: "Ejercicio 2.pdf"
@@ -26,8 +26,8 @@ const themes = [
       {
         id: "tema-01-ejercicio-03",
         number: "03",
-        title: "Actividad 03",
-        description: "Entrega original en PDF.",
+        title: "Interfaz, UI y UX",
+        description: "Definición de los tres conceptos con ejemplos de Instagram.",
         format: "pdf",
         path: "../Tema1/Ejercicio%203/Ejercicio%203.pdf",
         filename: "Ejercicio 3.pdf"
@@ -35,8 +35,8 @@ const themes = [
       {
         id: "tema-01-ejercicio-04",
         number: "04",
-        title: "Actividad 04",
-        description: "Entrega original en PDF.",
+        title: "Principios del diseño interactivo",
+        description: "Visibilidad, feedback, consistencia, affordance, mapeo, restricciones y más.",
         format: "pdf",
         path: "../Tema1/Ejercicio%204/Ejercicio%204.pdf",
         filename: "Ejercicio 4.pdf"
@@ -44,8 +44,8 @@ const themes = [
       {
         id: "tema-01-ejercicio-05",
         number: "05",
-        title: "Actividad 05",
-        description: "Entrega original en PDF.",
+        title: "Leyes visuales aplicadas a la web",
+        description: "Contraste, jerarquización, cierre y simetría con ejemplos prácticos.",
         format: "pdf",
         path: "../Tema1/Ejercicio%205/Ejercicio%205.pdf",
         filename: "Ejercicio 5.pdf"
@@ -61,8 +61,8 @@ const themes = [
       {
         id: "tema-02-ejercicio-01",
         number: "01",
-        title: "Actividad 01",
-        description: "Entrega original en PDF.",
+        title: "Componentes estructurales de HTML5",
+        description: "Header, nav, main, article, section, aside y footer con ejemplos reales.",
         format: "pdf",
         path: "../Tema2/Ejercicio%201/Ejercicio%201.pdf",
         filename: "Ejercicio 1.pdf"
@@ -71,7 +71,7 @@ const themes = [
         id: "tema-02-ejercicio-02",
         number: "02",
         title: "Estructura de una tienda web",
-        description: "Cabecera, navegación, categorías y pie de página.",
+        description: "Cabecera, barra lateral, navegación y pie de página.",
         format: "web",
         path: "../Tema2/Ejercicio%202/Ejercicio%202.html",
         filename: "Ejercicio 2.html"
@@ -80,10 +80,36 @@ const themes = [
         id: "tema-02-ejercicio-03",
         number: "03",
         title: "Análisis de elementos de interfaz",
-        description: "Lectura conceptual, visual, relacional y práctica.",
+        description: "Lectura conceptual, visual, relacional y práctica de cada bloque.",
         format: "web",
         path: "../Tema2/Ejercicio%203/Ejercicio%203.html",
         filename: "Ejercicio 3.html"
+      }
+    ]
+  },
+  {
+    id: "tema-03",
+    number: "03",
+    title: "Arquitectura y prototipado",
+    description: "Mapas de navegación y fases de diseño, del boceto al prototipo.",
+    activities: [
+      {
+        id: "tema-03-ejercicio-01",
+        number: "01",
+        title: "Sitio multipágina con navegación",
+        description: "Inicio, acerca de, contacto, mapa del sitio y diagrama de navegación.",
+        format: "web",
+        path: "../Tema3/Ejercicio1/index.html",
+        filename: "index.html"
+      },
+      {
+        id: "tema-03-ejercicio-02",
+        number: "02",
+        title: "Restaurante La Sierra (Ubrique)",
+        description: "Del mapa de navegación al prototipo: sketch, wireframe, mockup e interacción.",
+        format: "web",
+        path: "../Tema3/Ejercicio2/Ejercicio%202%20%C2%B7%20Restaurante%20La%20Sierra%20(Ubrique).html",
+        filename: "Ejercicio 2 · Restaurante La Sierra (Ubrique).html"
       }
     ]
   }
@@ -183,6 +209,7 @@ function openActivity(activity) {
   document.querySelector("#code-filename").textContent = activity.filename;
   setDialogView("preview");
   dialog.showModal();
+  syncHash(activity);
 }
 
 async function loadCode() {
@@ -246,7 +273,33 @@ document.querySelectorAll(".filter-button").forEach(button => {
       filter.classList.toggle("is-active", active);
       filter.setAttribute("aria-pressed", String(active));
     });
-    renderCatalog();
+    function updateCounters() {
+  const pad = n => String(n).padStart(2, "0");
+  const count = format => allActivities.filter(a => format === "all" || a.format === format).length;
+  const set = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = pad(value); };
+  set("activity-total", count("all"));
+  set("theme-total", themes.length);
+  set("web-total", count("web"));
+  set("art-total", count("all"));
+  document.querySelectorAll(".filter-button").forEach(button => {
+    const badge = button.querySelector("span");
+    if (badge) badge.textContent = pad(count(button.dataset.filter));
+  });
+}
+
+function syncHash(activity) {
+  const url = activity ? `#${activity.id}` : window.location.pathname + window.location.search;
+  history.replaceState(null, "", url);
+}
+
+function openFromHash() {
+  const activity = allActivities.find(item => `#${item.id}` === window.location.hash);
+  if (activity) openActivity(activity);
+}
+
+updateCounters();
+renderCatalog();
+openFromHash();
   });
 });
 
@@ -257,7 +310,7 @@ document.querySelector(".close-dialog").addEventListener("click", () => dialog.c
 dialog.addEventListener("click", event => {
   if (event.target === dialog) dialog.close();
 });
-dialog.addEventListener("close", () => { frame.src = "about:blank"; });
+dialog.addEventListener("close", () => { frame.src = "about:blank"; syncHash(null); });
 document.querySelector("#copy-code").addEventListener("click", copyCode);
 document.querySelector("#download-code").addEventListener("click", downloadCode);
 
@@ -268,4 +321,30 @@ document.addEventListener("keydown", event => {
   }
 });
 
+function updateCounters() {
+  const pad = n => String(n).padStart(2, "0");
+  const count = format => allActivities.filter(a => format === "all" || a.format === format).length;
+  const set = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = pad(value); };
+  set("activity-total", count("all"));
+  set("theme-total", themes.length);
+  set("web-total", count("web"));
+  set("art-total", count("all"));
+  document.querySelectorAll(".filter-button").forEach(button => {
+    const badge = button.querySelector("span");
+    if (badge) badge.textContent = pad(count(button.dataset.filter));
+  });
+}
+
+function syncHash(activity) {
+  const url = activity ? `#${activity.id}` : window.location.pathname + window.location.search;
+  history.replaceState(null, "", url);
+}
+
+function openFromHash() {
+  const activity = allActivities.find(item => `#${item.id}` === window.location.hash);
+  if (activity) openActivity(activity);
+}
+
+updateCounters();
 renderCatalog();
+openFromHash();
