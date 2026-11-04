@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://raulperezaguilar.github.io/DIWEB2627/portfolio/index.html</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -57,6 +57,60 @@
   <url>
     <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema3/Ejercicio2/Ejercicio%202%20%C2%B7%20Restaurante%20La%20Sierra%20(Ubrique).html</loc>
     <lastmod>2026-10-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema5/Ejercicio3/1_fijo.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema5/Ejercicio3/2_liquido.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema5/Ejercicio3/3_adaptativo.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema5/Ejercicio3/4_responsivo.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema5/Ejercicio4/ejercicio4_fijo.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema5/Ejercicio5/ejercicio5_variable.html</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema4/Ejercicio%201.pdf</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema4/Ejercicio%202.pdf</loc>
+    <lastmod>2026-11-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://raulperezaguilar.github.io/DIWEB2627/Tema4/Ejercicio%203.pdf</loc>
+    <lastmod>2026-11-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

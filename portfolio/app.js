@@ -112,6 +112,103 @@ const themes = [
         filename: "Ejercicio 2 · Restaurante La Sierra (Ubrique).html"
       }
     ]
+  },
+  {
+    id: "tema-04",
+    number: "04",
+    title: "Guías de estilo",
+    description: "Color, contraste, tipografía y coherencia visual.",
+    activities: [
+      {
+        id: "tema-04-ejercicio-01",
+        number: "01",
+        title: "Cazadores de inconsistencias UI",
+        description: "Cuatro errores de una web mal diseñada y cómo una guía de estilo los habría evitado.",
+        format: "pdf",
+        path: "../Tema4/Ejercicio%201.pdf",
+        filename: "Ejercicio 1.pdf"
+      },
+      {
+        id: "tema-04-ejercicio-02",
+        number: "02",
+        title: "Análisis de color y contraste (Apple)",
+        description: "Reparto 60-30-10, códigos HEX y comprobación de contraste WCAG.",
+        format: "pdf",
+        path: "../Tema4/Ejercicio%202.pdf",
+        filename: "Ejercicio 2.pdf"
+      },
+      {
+        id: "tema-04-ejercicio-03",
+        number: "03",
+        title: "Dos tipografías para el mismo titular",
+        description: "Montserrat (sans-serif) frente a Playfair Display (serif) y qué transmite cada una.",
+        format: "pdf",
+        path: "../Tema4/Ejercicio%203.pdf",
+        filename: "Ejercicio 3.pdf"
+      }
+    ]
+  },
+  {
+    id: "tema-05",
+    number: "05",
+    title: "Modelos de diseño de layout",
+    description: "Ancho fijo, líquido, adaptativo y responsivo.",
+    activities: [
+      {
+        id: "tema-05-ejercicio-03a",
+        number: "03a",
+        title: "Diseño fijo",
+        description: "Ancho de 960 px siempre, sin importar la ventana.",
+        format: "web",
+        path: "../Tema5/Ejercicio3/1_fijo.html",
+        filename: "1_fijo.html"
+      },
+      {
+        id: "tema-05-ejercicio-03b",
+        number: "03b",
+        title: "Diseño líquido",
+        description: "Ancho en porcentajes: se estira y se encoge con la ventana.",
+        format: "web",
+        path: "../Tema5/Ejercicio3/2_liquido.html",
+        filename: "2_liquido.html"
+      },
+      {
+        id: "tema-05-ejercicio-03c",
+        number: "03c",
+        title: "Diseño adaptativo",
+        description: "Tres anchos fijos (móvil, tablet y escritorio) según breakpoints.",
+        format: "web",
+        path: "../Tema5/Ejercicio3/3_adaptativo.html",
+        filename: "3_adaptativo.html"
+      },
+      {
+        id: "tema-05-ejercicio-03d",
+        number: "03d",
+        title: "Diseño responsivo",
+        description: "Rejilla fluida con media queries e imágenes flexibles.",
+        format: "web",
+        path: "../Tema5/Ejercicio3/4_responsivo.html",
+        filename: "4_responsivo.html"
+      },
+      {
+        id: "tema-05-ejercicio-04",
+        number: "04",
+        title: "Página de ancho fijo (800 px)",
+        description: "Página centrada con un ancho fijo de 800 píxeles.",
+        format: "web",
+        path: "../Tema5/Ejercicio4/ejercicio4_fijo.html",
+        filename: "ejercicio4_fijo.html"
+      },
+      {
+        id: "tema-05-ejercicio-05",
+        number: "05",
+        title: "Página de ancho variable",
+        description: "La misma página con ancho en porcentaje y comparación con la fija.",
+        format: "web",
+        path: "../Tema5/Ejercicio5/ejercicio5_variable.html",
+        filename: "ejercicio5_variable.html"
+      }
+    ]
   }
 ];
 
@@ -273,33 +370,7 @@ document.querySelectorAll(".filter-button").forEach(button => {
       filter.classList.toggle("is-active", active);
       filter.setAttribute("aria-pressed", String(active));
     });
-    function updateCounters() {
-  const pad = n => String(n).padStart(2, "0");
-  const count = format => allActivities.filter(a => format === "all" || a.format === format).length;
-  const set = (id, value) => { const el = document.getElementById(id); if (el) el.textContent = pad(value); };
-  set("activity-total", count("all"));
-  set("theme-total", themes.length);
-  set("web-total", count("web"));
-  set("art-total", count("all"));
-  document.querySelectorAll(".filter-button").forEach(button => {
-    const badge = button.querySelector("span");
-    if (badge) badge.textContent = pad(count(button.dataset.filter));
-  });
-}
-
-function syncHash(activity) {
-  const url = activity ? `#${activity.id}` : window.location.pathname + window.location.search;
-  history.replaceState(null, "", url);
-}
-
-function openFromHash() {
-  const activity = allActivities.find(item => `#${item.id}` === window.location.hash);
-  if (activity) openActivity(activity);
-}
-
-updateCounters();
-renderCatalog();
-openFromHash();
+    renderCatalog();
   });
 });
 

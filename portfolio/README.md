@@ -12,13 +12,15 @@ Portfolio académico de **Diseño de Interfaces Web** (2º DAW) de Raúl Pérez 
 | `Tema1/` | Ejercicios 1–5: evolución, glosario, UI/UX, principios y leyes visuales |
 | `Tema2/` | Ejercicios 1–3: componentes HTML5, tienda web y análisis de interfaz |
 | `Tema3/` | Ejercicio 1: sitio multipágina · Ejercicio 2: Restaurante La Sierra (sketch, wireframe, mockup, prototipo) |
+| `Tema4/` | Ejercicios 1–3 (PDF): inconsistencias UI, color y contraste (Apple) y tipografías |
+| `Tema5/` | Ejercicio 3: layouts fijo, líquido, adaptativo y responsivo · Ejercicio 4: ancho fijo · Ejercicio 5: ancho variable |
 | `sitemap.xml` | Mapa del sitio para buscadores |
 
 ## Cómo verlo
 
 Abre `index.html` con un servidor local (por ejemplo, la extensión *Live Server* de VS Code).
 Con servidor local funcionan la pestaña **Código**, el botón de copiar y la descarga del código fuente.
-Cada actividad se puede enlazar directamente, por ejemplo `portfolio/index.html#tema-03-ejercicio-02`.
+Cada actividad se puede enlazar directamente, por ejemplo `portfolio/index.html#tema-05-ejercicio-04`.
 
 ## Añadir una actividad
 
