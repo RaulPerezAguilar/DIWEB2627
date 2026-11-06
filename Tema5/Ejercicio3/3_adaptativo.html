@@ -1,10 +1,139 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Diseño adaptativo</title><style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#f3f4f6;color:#1f2937}header,footer{background:#1f2937;color:#fff;padding:14px;text-align:center}.col{background:#fff;border:2px solid #5b7b2f;border-radius:8px;padding:14px}.col h2{margin:0 0 6px;font-size:1.1rem}
-.page{margin:0 auto;background:#fff}
-main{display:flex;gap:16px;padding:16px}.col{flex:none}
-/* 3 diseños fijos, uno por rango de pantalla */
-.page{width:320px}.col{width:100%}main{flex-direction:column}.tag:after{content:" MÓVIL: 320px, 1 columna"}
-@media (min-width:600px){.page{width:600px}main{flex-direction:row;flex-wrap:wrap}.col{width:calc(50% - 8px)}.tag:after{content:" TABLET: 600px, 2 columnas"}}
-@media (min-width:1000px){.page{width:960px}main{flex-wrap:nowrap}.col{width:288px}.tag:after{content:" ESCRITORIO: 960px, 3 columnas"}}
-</style></head><body><div class="page"><header><b>DISEÑO ADAPTATIVO</b><br><span class="tag"></span></header>
-<main><div class="col"><h2>Columna 1</h2><p>El ancho salta entre 3 anchos fijos.</p></div><div class="col"><h2>Columna 2</h2><p>Cambia solo al cruzar un breakpoint.</p></div><div class="col"><h2>Columna 3</h2><p>Entre breakpoints no se estira.</p></div></main>
-<footer>media queries + anchos fijos</footer></div></body></html>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diseño adaptativo</title>
+
+    <style>
+        /* ===== Estilos comunes ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        header,
+        footer {
+            background: #1f2937;
+            color: #fff;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .col {
+            background: #fff;
+            border: 2px solid #5b7b2f;
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .col h2 {
+            margin: 0 0 6px;
+            font-size: 1.1rem;
+        }
+
+        /* ===== Diseño adaptativo ===== */
+        /* 3 diseños fijos, uno por rango de pantalla */
+
+        /* Móvil (por defecto) */
+        .page {
+            width: 320px;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .col {
+            width: 100%;
+            flex: none;
+        }
+
+        .tag::after {
+            content: " MÓVIL: 320px, 1 columna";
+        }
+
+        /* Tablet */
+        @media (min-width: 600px) {
+            .page {
+                width: 600px;
+            }
+
+            main {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+
+            .col {
+                width: calc(50% - 8px);
+            }
+
+            .tag::after {
+                content: " TABLET: 600px, 2 columnas";
+            }
+        }
+
+        /* Escritorio */
+        @media (min-width: 1000px) {
+            .page {
+                width: 960px;
+            }
+
+            main {
+                flex-wrap: nowrap;
+            }
+
+            .col {
+                width: 288px;
+            }
+
+            .tag::after {
+                content: " ESCRITORIO: 960px, 3 columnas";
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header>
+            <b>DISEÑO ADAPTATIVO</b><br>
+            <span class="tag"></span>
+        </header>
+
+        <main>
+            <div class="col">
+                <h2>Columna 1</h2>
+                <p>El ancho salta entre 3 anchos fijos.</p>
+            </div>
+
+            <div class="col">
+                <h2>Columna 2</h2>
+                <p>Cambia solo al cruzar un breakpoint.</p>
+            </div>
+
+            <div class="col">
+                <h2>Columna 3</h2>
+                <p>Entre breakpoints no se estira.</p>
+            </div>
+        </main>
+
+        <footer>
+            media queries + anchos fijos
+        </footer>
+    </div>
+</body>
+
+</html>

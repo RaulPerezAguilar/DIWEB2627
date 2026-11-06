@@ -1,0 +1,22 @@
+Ejercicio 6
+Crea una plantilla html sencilla para darle una estructura a una página web. Llámala plantilla.html y utilízala para crear 3 páginas: index.html, contactos.html y noticias.html.
+Añade en la parte principal un iframe con un contenido a tu elección.
+¿Qué diferencia existe entre un frame y un iframe?
+¿Por qué los frames tradicionales dejaron de utilizarse?
+¿Qué ventajas ofrece una plantilla?
+¿Qué problemas de seguridad pueden aparecer al utilizar iframes?
+¿Qué alternativas modernas existen para reutilizar componentes de una interfaz?
+
+
+
+RESPUESTAS
+
+1. Un frame divide la ventana del navegador en varias partes y cada una carga una página distinta. Un iframe es un recuadro dentro de una página normal donde se carga otra página. El frame ya no se usa en HTML5 y el iframe sí.
+
+2. Porque daban muchos problemas: la URL no cambiaba, no se podían guardar en favoritos, eran malos para los buscadores y no se veían bien en el móvil. Al final los quitaron de HTML5.
+
+3. Que todas las páginas tienen la misma estructura y solo tienes que cambiar el contenido. Ahorras tiempo y es más fácil hacer cambios.
+
+4. Que la página que cargas puede tener contenido malicioso o intentar engañar al usuario para que haga clic en algo (clickjacking). Por eso hay que cargar solo páginas de confianza o usar el atributo sandbox.
+
+5. Usar PHP con include, Web Components o frameworks de JavaScript como React, Vue o Angular.

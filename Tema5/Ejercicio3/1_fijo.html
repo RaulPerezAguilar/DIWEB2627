@@ -1,6 +1,91 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Diseño fijo</title><style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#f3f4f6;color:#1f2937}header,footer{background:#1f2937;color:#fff;padding:14px;text-align:center}.col{background:#fff;border:2px solid #5b7b2f;border-radius:8px;padding:14px}.col h2{margin:0 0 6px;font-size:1.1rem}
-.page{width:960px;margin:0 auto;background:#fff}
-main{display:flex;gap:16px;padding:16px}.col{width:288px;flex:none}
-</style></head><body><div class="page"><header><b>DISEÑO FIJO</b> · ancho = 960px siempre</header>
-<main><div class="col"><h2>Columna 1</h2><p>Ancho fijo 288px.</p></div><div class="col"><h2>Columna 2</h2><p>Si la pantalla es menor de 960px aparece scroll horizontal.</p></div><div class="col"><h2>Columna 3</h2><p>Si es mayor, sobran márgenes.</p></div></main>
-<footer>width: 960px (px)</footer></div></body></html>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diseño fijo</title>
+
+    <style>
+        /* ===== Estilos comunes ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        header,
+        footer {
+            background: #1f2937;
+            color: #fff;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .col {
+            background: #fff;
+            border: 2px solid #5b7b2f;
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .col h2 {
+            margin: 0 0 6px;
+            font-size: 1.1rem;
+        }
+
+        /* ===== Diseño fijo ===== */
+        .page {
+            width: 960px;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        main {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+        }
+
+        .col {
+            width: 288px;
+            flex: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header>
+            <b>DISEÑO FIJO</b> · ancho = 960px siempre
+        </header>
+
+        <main>
+            <div class="col">
+                <h2>Columna 1</h2>
+                <p>Ancho fijo 288px.</p>
+            </div>
+
+            <div class="col">
+                <h2>Columna 2</h2>
+                <p>Si la pantalla es menor de 960px aparece scroll horizontal.</p>
+            </div>
+
+            <div class="col">
+                <h2>Columna 3</h2>
+                <p>Si es mayor, sobran márgenes.</p>
+            </div>
+        </main>
+
+        <footer>
+            width: 960px (px)
+        </footer>
+    </div>
+</body>
+
+</html>

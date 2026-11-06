@@ -1,7 +1,100 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Diseño responsivo</title><style>*{box-sizing:border-box}body{margin:0;font-family:system-ui,sans-serif;background:#f3f4f6;color:#1f2937}header,footer{background:#1f2937;color:#fff;padding:14px;text-align:center}.col{background:#fff;border:2px solid #5b7b2f;border-radius:8px;padding:14px}.col h2{margin:0 0 6px;font-size:1.1rem}
-.page{max-width:1100px;margin:0 auto;background:#fff}
-main{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;padding:16px}
-img{max-width:100%;height:auto;display:block;border-radius:6px}
-</style></head><body><div class="page"><header><b>DISEÑO RESPONSIVO</b> · fluido + media queries + imágenes flexibles</header>
-<main><div class="col"><h2>Columna 1</h2><p>Grid con auto-fit: cuantas columnas caben.</p><svg viewBox="0 0 200 80" style="max-width:100%;height:auto"><rect width="200" height="80" fill="#e7edd9"/><circle cx="100" cy="40" r="25" fill="#5b7b2f"/></svg></div><div class="col"><h2>Columna 2</h2><p>Se estira de forma fluida y también cambia de nº de columnas.</p></div><div class="col"><h2>Columna 3</h2><p>1, 2 o 3 columnas según el espacio.</p></div></main>
-<footer>max-width + grid + viewport</footer></div></body></html>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Diseño responsivo</title>
+
+    <style>
+        /* ===== Estilos comunes ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            background: #f3f4f6;
+            color: #1f2937;
+        }
+
+        header,
+        footer {
+            background: #1f2937;
+            color: #fff;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .col {
+            background: #fff;
+            border: 2px solid #5b7b2f;
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .col h2 {
+            margin: 0 0 6px;
+            font-size: 1.1rem;
+        }
+
+        /* ===== Diseño responsivo ===== */
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: #fff;
+        }
+
+        main {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            padding: 16px;
+        }
+
+        /* Imágenes flexibles */
+        img,
+        svg {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <header>
+            <b>DISEÑO RESPONSIVO</b> · fluido + media queries + imágenes flexibles
+        </header>
+
+        <main>
+            <div class="col">
+                <h2>Columna 1</h2>
+                <p>Grid con auto-fit: cuantas columnas caben.</p>
+                <svg viewBox="0 0 200 80">
+                    <rect width="200" height="80" fill="#e7edd9" />
+                    <circle cx="100" cy="40" r="25" fill="#5b7b2f" />
+                </svg>
+            </div>
+
+            <div class="col">
+                <h2>Columna 2</h2>
+                <p>Se estira de forma fluida y también cambia de nº de columnas.</p>
+            </div>
+
+            <div class="col">
+                <h2>Columna 3</h2>
+                <p>1, 2 o 3 columnas según el espacio.</p>
+            </div>
+        </main>
+
+        <footer>
+            max-width + grid + viewport
+        </footer>
+    </div>
+</body>
+
+</html>
