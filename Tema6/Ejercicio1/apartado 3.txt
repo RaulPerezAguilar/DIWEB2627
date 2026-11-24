@@ -1,0 +1,8 @@
+¿Qué diferencias encuentras entre las dos soluciones?
+En línea se repite en cada etiqueta; interno se escribe una vez en el head.
+
+¿Qué sucede si queremos aplicar el mismo estilo a diez páginas?
+Hay que copiarlo y modificarlo en las diez.
+
+¿Qué modalidad utilizarías en un proyecto real?
+Una hoja de estilos externa (.css).

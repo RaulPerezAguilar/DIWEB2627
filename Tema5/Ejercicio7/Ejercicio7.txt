@@ -1,0 +1,17 @@
+Ejercicio 7
+
+Añade una nueva entrada en el Portfolio:
+
+Explica qué son los CMS
+
+Indica un caso en el que usarías un gestor de contenido y otro en el que no, explicando por qué y cuál sería la alternativa.
+
+Cita varios ejemplos distintos de CMS en el mercado comparándolos entre sí. ¿Cuál usarías si quisieras diseñar una tienda online de manera rápida y funcional?
+
+
+1. Un CMS es un programa que te deja crear y gestionar una web desde un panel, sin tener que programar. Puedes subir contenido, cambiar el diseño con plantillas y añadir funciones con plugins.
+
+2. Usaría un CMS para el blog de un negocio, porque el dueño puede subir contenido él mismo sin saber programar. No lo usaría para una aplicación con funciones muy concretas, porque un CMS se quedaría corto. Ahí es mejor programarla a medida con un framework como Laravel o React.
+
+3. WordPress es el más usado y fácil, con muchísimos plugins. Joomla y Drupal son más potentes pero más difíciles de aprender. PrestaShop y Magento están pensados para tiendas online, y Shopify es de pago pero lo tienes funcionando enseguida sin preocuparte del servidor.
+Para una tienda rápida usaría Shopify, o WordPress con WooCommerce si no quiero pagar cuota.
