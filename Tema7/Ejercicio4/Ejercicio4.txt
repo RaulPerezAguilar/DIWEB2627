@@ -1,0 +1,7 @@
+Actividad 4. El conflicto de especificidad
+
+1. Rojo.
+2. #principal p (1,0,1), porque tiene un ID.
+3. Sería morado, gana .mensaje.destacado (0,2,0).
+4. Seguiría rojo. Solo cambiaría si se hubiera quitado #principal p (ganaría la última por orden).
+5. No usar IDs para estilos, usar clases con poca especificidad (BEM) y evitar !important.

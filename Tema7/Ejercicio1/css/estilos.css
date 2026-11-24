@@ -1,0 +1,8 @@
+/* 1 */ p { }
+/* 2 */ #contenedor { }
+/* 3 */ .destacado { }
+/* 4 */ p.texto { }
+/* 5 */ section p { }
+/* 6 */ button { }
+/* 7 */ section > :first-child { }
+/* 8 */ p.texto.destacado { }

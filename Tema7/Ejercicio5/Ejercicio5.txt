@@ -1,0 +1,7 @@
+Actividad 5. Refactorización con BEM
+
+1. Bloque: caja -> producto
+2. producto, producto__titulo, producto__texto, producto__boton
+3. producto__boton
+4. producto__boton--principal
+5. Ver css/estilos.css

@@ -1,0 +1,7 @@
+Actividad 2. ¿Qué elementos selecciona cada selector?
+
+main p { }        -> Noticia 1, 2, 3 y 4
+main > p { }      -> Noticia 1, 2 y 4
+h2 + p { }        -> Noticia 1 y 4
+h2 ~ p { }        -> Noticia 1, 2 y 4
+p.importante { }  -> Noticia 2
